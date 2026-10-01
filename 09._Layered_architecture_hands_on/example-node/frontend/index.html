@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes API - Frontend</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="file:///Users/jonas/session-11/EK_ITA_SWA_2026_fall/09._Layered_architecture_hands_on/example-node/frontend/css/styles.css">
+</head>
+<body>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary">Notes API</h1>
+            <p class="lead text-muted">Connected to your Node.js backend</p>
+        </header>
+
+        <div class="row g-4">
+            <!-- Create Note Card -->
+            <div class="col-md-5">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <i class="bi bi-plus-lg me-2"></i>Create New Note
+                    </div>
+                    <div class="card-body">
+                        <form id="createNoteForm">
+                            <div class="mb-3">
+                                <label for="noteTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control form-control-lg" id="noteTitle" 
+                                       placeholder="Enter note title" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="noteBody" class="form-label">Content</label>
+                                <textarea class="form-control form-control-lg" id="noteBody" 
+                                          rows="4" placeholder="Enter note content..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-send me-2"></i>Create Note
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes List Card -->
+            <div class="col-md-7">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-journal-text me-2"></i>All Notes</span>
+                        <button id="refreshNotesBtn" class="btn btn-sm btn-outline-light">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="notesContainer" class="list-group list-group-flush">
+                            <!-- Notes will be loaded here -->
+                            <div class="list-group-item text-muted text-center py-4">
+                                <i class="bi bi-inbox text-primary" style="font-size: 3rem;"></i>
+                                <p class="mt-2 mb-0">Loading notes...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Note Modal -->
+        <div class="modal fade" id="viewNoteModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title"><i class="bi bi-eye me-2"></i>View Note</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalNoteContent">
+                            <!-- Note content will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="toastNotification" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Notes API</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="file:///Users/jonas/session-11/EK_ITA_SWA_2026_fall/09._Layered_architecture_hands_on/example-node/frontend/js/app.js"></script>
+</body>
+</html>
