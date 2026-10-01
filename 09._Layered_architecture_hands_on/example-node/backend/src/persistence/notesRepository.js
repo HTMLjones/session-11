@@ -9,7 +9,7 @@
 // database or HTTP call returns a Promise, so the contract is async from day one.
 
 const notes = [
-  { id: 1, title: "Welcome", body: "This note is hardcoded, not read from a database." },
+  { id: 1, title: "Welcome", body: "This is a note from notesRepository.js." },
   { id: 2, title: "Second note", body: "Still hardcoded. Swap this file for a real one later." },
 ];
 

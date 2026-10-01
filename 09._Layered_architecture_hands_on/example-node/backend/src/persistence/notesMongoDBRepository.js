@@ -37,8 +37,10 @@ const ready = (async () => {
   const count = await notes.countDocuments();
   if (count === 0) {
     await notes.insertMany([
-      { id: 1, title: "Welcome", body: "This note is read from MongoDB, not hardcoded." },
-      { id: 2, title: "Second note", body: "Swapped in by changing one require(...) line." },
+      { id: 1, title: "Welcome", body: "This note is from notesMongoDBRepository.js." },
+      { id: 2, title: "Second note", body: "Swapped in by changing one require(...) line. Changed by Jonas" },
+      {id: 3, title: "Third note", body: "Written by Jonas" },
+      {id: 4, title: "Fourth note", body: "Hello"},
     ]);
   }
 })();
